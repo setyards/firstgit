@@ -22,7 +22,7 @@ public class Dashboard extends AppCompatActivity {
 
         TextView bayar1 = (TextView) findViewById(R.id.bayar);
         bayar1.setOnClickListener(bayar);
-
+ 
         View.OnClickListener transfer = new View.OnClickListener() {
             @Override
             public void onClick(View v) {

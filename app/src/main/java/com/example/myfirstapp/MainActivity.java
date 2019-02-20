@@ -1,7 +1,11 @@
 package com.example.myfirstapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatCheckBox;
@@ -58,10 +62,42 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        final myDbAdapter helper = new myDbAdapter(this);
+        final EditText username = (EditText) findViewById(R.id.username);
+        final EditText password = (EditText) findViewById(R.id.password);
+        String MyPREFERENCES = "MyPrefs" ;
+        final SharedPreferences sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+
+        editor.putString("Name", "Name");
+        editor.putString("Email", "Email");
+        editor.commit();
         View.OnClickListener signin = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Dashboard_Slide.class));
+                String susername=username.getText().toString();
+                String spassword=password.getText().toString();
+                if (susername.isEmpty() || spassword.isEmpty()){
+                        Message.message(getApplicationContext(),"Username and Password Must Not Empty");
+                } else {
+                    String[] ret=helper.getLogin(susername,spassword);
+                    //String[] ret = {"abc","abc","abc"};
+                    String success = "Success";
+                    if(success.equals(ret[0]))
+                    {
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+
+                        editor.putString("Name", ret[1]);
+                        editor.putString("Email", ret[3]);
+                        editor.commit();
+                        startActivity(new Intent(MainActivity.this, Dashboard_Slide.class));
+
+                    }
+                    else{
+                        Message.message(getApplicationContext(),ret[0]);
+                    }
+                }
             }
         };
 
@@ -81,5 +117,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 
 }

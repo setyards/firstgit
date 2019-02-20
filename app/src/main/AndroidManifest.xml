@@ -4,16 +4,25 @@
 
     <application
         android:allowBackup="true"
+        android:debuggable="false"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
+        android:testOnly="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".Bayar"></activity>
-        <activity android:name=".Ewallet" />
-        <activity android:name=".Transfer" />
-        <activity android:name=".AlokasiDana" />
-        <activity android:name=".Dashboard" />
+        <activity
+            android:name=".Dashboard_Slide"
+            android:label="@string/title_activity_dashboard__slide"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Bayar"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Ewallet"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Transfer"
+            android:screenOrientation="portrait" />
+        <activity android:name=".AlokasiDana"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ForgotPassword"
             android:screenOrientation="portrait"

@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener signin = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, Dashboard.class));
+                startActivity(new Intent(MainActivity.this, Dashboard_Slide.class));
             }
         };
 

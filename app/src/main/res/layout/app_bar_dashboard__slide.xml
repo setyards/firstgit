@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Transfer">
+    tools:context=".Dashboard_Slide">
 
-<android.support.design.widget.AppBarLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:theme="@style/AppTheme.AppBarOverlay"
-    android:layout_marginTop="20dp" >
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#33b0ff"
-        app:popupTheme="@style/AppTheme.PopupOverlay" >
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:layout_marginTop="20dp" >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#33b0ff"
+            app:popupTheme="@style/AppTheme.PopupOverlay" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,18 +25,7 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/close"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:adjustViewBounds="true"
-                android:scaleType="centerCrop"
-                android:visibility="visible"
-                android:src="@drawable/close2"
-                android:clickable="true"/>
-
-            <ImageView
                 android:id="@+id/toolbar_title"
-                android:layout_marginLeft="10dp"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:adjustViewBounds="true"
@@ -49,15 +38,15 @@
                 android:layout_gravity="center"
                 android:paddingLeft="15dp"
                 android:textColor="#fff"
-                android:text="Transfer"
+                android:text="Overview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
 
-    </android.support.v7.widget.Toolbar>
+        </android.support.v7.widget.Toolbar>
 
-</android.support.design.widget.AppBarLayout>
+    </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_transfer" />
+    <include layout="@layout/content_dashboard__slide" />
 
 </android.support.design.widget.CoordinatorLayout>
